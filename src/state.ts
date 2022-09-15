@@ -1,8 +1,9 @@
 import { state, type State } from "poxi";
 
-type Schema = { count: number };
+type Schema = { messages: Array<string> };
 export const getState = () => state<Schema>();
+export const getMessages = () => getState().getArray("messages");
 
 export function onCreate(state: State<Schema>) {
-  state.set({ count: 0 });
+  state.set({ messages: [] });
 }
